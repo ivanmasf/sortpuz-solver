@@ -3,7 +3,7 @@ from typing import Unpack
 from pydantic import BaseModel
 
 from sortpuz.models.base import RGB
-from sortpuz.constants import NAME_RGB, RGB_INTERVAL
+from sortpuz.constants.base_constants import NAME_RGB, RGB_INTERVAL
 
 class Color(BaseModel):
     name: str = ""

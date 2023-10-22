@@ -2,22 +2,19 @@
 Take an image and turn it into Python objects representing the game using simple pixel parsing rules.
 """
 
-from pathlib import Path
 import tomllib
 
 import cv2
 
+from sortpuz import ROOT_PKG_DIR
 from sortpuz.models.base import Point, ColorPointMatrix, TubeRow, TubePoints, ImgConfig
 from sortpuz.models.color import Color
-from sortpuz.plotting import plot_game
-
-CWD = Path(__file__).parent
 
 # Game 2 = Level 470
-img = cv2.imread(str(CWD / "game2.jpeg"))
+img = cv2.imread(str(ROOT_PKG_DIR / "game2.jpeg"))
 
 # Load the TOML configuration
-with open(CWD / "config/color_parsing.toml", "r") as file:
+with open(ROOT_PKG_DIR / "config/color_parsing.toml", "r") as file:
     config = tomllib.loads(file.read())
 
 # Extract the data
@@ -78,11 +75,3 @@ def get_color_matrix(color_point_matrix: ColorPointMatrix) -> list[list[list[Col
         color_matrix.append(row_tubes)
     
     return color_matrix
-
-if __name__ == "__main__":
-    img_cfg = ImgConfig(tube_count=(6, 5), num_colors=4)
-    color_point_matrix = get_color_map(img_cfg)
-
-    color_matrix = get_color_matrix(color_point_matrix)
-
-    plot_game(color_matrix)

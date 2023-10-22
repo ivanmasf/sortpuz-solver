@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from sortpuz.models.base import RGB
 from sortpuz.constants.base_constants import NAME_RGB, RGB_INTERVAL
 
+
 class Color(BaseModel):
     name: str = ""
     rgb: RGB = RGB(R=-1, G=-1, B=-1)

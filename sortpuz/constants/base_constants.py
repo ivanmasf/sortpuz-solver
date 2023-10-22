@@ -3,7 +3,6 @@ import tomllib
 from sortpuz import ROOT_PKG_DIR
 from sortpuz.models.base import RGB
 
-
 # Load the TOML configuration
 with open(ROOT_PKG_DIR / "config/color_parsing.toml", "r") as file:
     config = tomllib.loads(file.read())
@@ -12,7 +11,7 @@ with open(ROOT_PKG_DIR / "config/color_parsing.toml", "r") as file:
 X_COORD = {int(k): tuple(v) for k, v in config["X_COORD"].items()}
 Y_COORD = tuple(config["Y_COORD"]["values"])
 Y_COORD_DELTA = {int(k): v for k, v in config["Y_COORD_DELTA"].items()}
-RGB_INTERVAL = config['RGB_INTERVAL']
+RGB_INTERVAL = config["RGB_INTERVAL"]
 
 NAME_RGB = {
     "Red": RGB(R=216, G=82, B=81),

@@ -4,6 +4,7 @@ from matplotlib.axes import Axes
 
 from sortpuz.models.color import Color
 
+
 def plot_color(ax: Axes, color: Color):
     # Create an image of size 10x10 with the specified color
     image = np.ones((10, 10, 3), dtype=np.uint8)

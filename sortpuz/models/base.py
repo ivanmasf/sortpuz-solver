@@ -1,10 +1,12 @@
 from typing import TypedDict, Literal
 from pydantic import BaseModel
 
+
 class RGB(TypedDict):
     R: int
     G: int
     B: int
+
 
 class Point(BaseModel):
     x: int

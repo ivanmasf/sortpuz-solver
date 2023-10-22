@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import TypedDict, Literal
 from pydantic import BaseModel
 
 class RGB(TypedDict):
@@ -35,3 +35,9 @@ class ColorPointMatrix(tuple[TubeRow, TubeRow]):
         return 3
 
 
+class ImgConfig(BaseModel):
+    tube_count: tuple[
+        Literal[5] | Literal[6],
+        Literal[5] | Literal[6],
+    ]
+    num_colors: Literal[4] | Literal[5]
